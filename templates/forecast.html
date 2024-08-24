@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Cost Forecasting</h1>
+<form method="post">
+    <label for="storage_type">Storage Type:</label>
+    <input type="text" id="storage_type" name="storage_type" required><br>
+
+    <label for="instance_name">Instance Name:</label>
+    <input type="text" id="instance_name" name="instance_name" required><br>
+
+    <label for="num_instances">Number of Instances:</label>
+    <input type="text" id="num_instances" name="num_instances" required><br>
+
+    <label for="vcpu">Number of vCPUs:</label>
+    <input type="text" id="vcpu" name="vcpu" required><br>
+
+    <label for="cpu_usage">CPU Usage (%):</label>
+    <input type="text" id="cpu_usage" name="cpu_usage" required><br>
+
+    <label for="memory">Memory (GB):</label>
+    <input type="text" id="memory" name="memory" required><br>
+
+    <label for="memory_usage">Memory Usage (%):</label>
+    <input type="text" id="memory_usage" name="memory_usage" required><br>
+
+    <label for="storage_size">Storage Size (GB):</label>
+    <input type="text" id="storage_size" name="storage_size" required><br>
+
+    <input type="submit" value="Forecast Cost">
+</form>
+
+{% if predicted_cost %}
+    <h2>Predicted Cost Per Hour: ${{ predicted_cost }}</h2>
+{% endif %}
+{% endblock %}

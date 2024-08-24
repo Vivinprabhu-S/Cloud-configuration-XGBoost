@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Cloud Service Recommendations</h1>
+<form method="post">
+    <label for="numberOfInstances">Number of Instances:</label>
+    <input type="text" id="numberOfInstances" name="numberOfInstances" required><br>
+
+    <label for="instanceName">Instance Name:</label>
+    <select id="instanceName" name="instanceName" required>
+        <option value="t3.medium">t3.medium</option>
+        <!-- Add more options here -->
+    </select><br>
+
+    <label for="storageSize">Storage Size:</label>
+    <input type="text" id="storageSize" name="storageSize" required><br>
+
+    <label for="costPerHour">Cost Per Hour:</label>
+    <input type="text" id="costPerHour" name="costPerHour" required><br>
+
+    <input type="submit" value="Get Recommendations">
+</form>
+
+<h2>Recommendations:</h2>
+<ul>
+    {% if recommendations %}
+        {% for rec in recommendations %}
+            {% if rec.message %}
+                <li>{{ rec.message }}</li>
+            {% else %}
+                <li>
+                    Number of Instances: {{ rec['Number of Instances'] }},
+                    Instance Name: {{ rec['Instance Name'] }},
+                    Storage Size: {{ rec['Storage Size'] }},
+                    Cost Per Hour: {{ rec['Cost Per Hour'] }}
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</ul>
+{% endblock %}
