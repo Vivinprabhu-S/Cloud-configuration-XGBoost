@@ -22,8 +22,8 @@ To get started with this project, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
-    cd your-repository
+    git clone https://github.com/Vivinprabhu-S/Cloud-configuration-XGBoost.git
+    cd [downloaded_folder]
     ```
 
 2. **Create a virtual environment (optional but recommended):**
